@@ -1,4 +1,4 @@
 django-mysql-shard
 ==================
 
-A Model class and utilities for dealing with horizontal sharding on MySQL for Django.
+A Model for Django Models to inherit (and utilities) for abstracting horizontal sharding on MySQL. Follow the instructions and grow tables infinitely.

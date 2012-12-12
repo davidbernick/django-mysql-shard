@@ -1,0 +1,8 @@
+Python parse of ID
+
+CREATE TABLE using simpleproc
+
+INSERT:
+	pick random shard
+	"using" DB based on shard in settings.py
+

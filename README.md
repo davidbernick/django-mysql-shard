@@ -46,4 +46,12 @@ mysql> select simpleproc();
 1 row in set (0.00 sec)
 ```
 
-In the next section, we'll go over how that new string of numbers (your new ID) works with Django and how it auto-identifies which shard it lives on.
+```
+import bistring
+a = bitstring.BitArray(bin(247562734190477317))
+#print part where shard_id exists
+print a[46:58].int
+```
+And there's your shard_id. I hope you can imagine what we're going to do with that! It means that any object we get will tell us where it lives without a lookup.  
+
+What we'll go over next is how to integrate this all into django -- Inserts will put the file into its proper shard. Selects will map-reduce to get all of the matching queries in all of the shards.

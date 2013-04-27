@@ -1,4 +1,3 @@
-
 delimiter //
 drop table if exists shard_seq_tbl //
 create table shard_seq_tbl ( nextval bigint not null primary key auto_increment ) engine = MyISAM //
@@ -17,8 +16,8 @@ end//
 drop function if exists now_msec//
 CREATE FUNCTION now_msec RETURNS STRING SONAME "now_msec.so"//
 
-drop function if exists simpleproc //
-CREATE function simpleproc ()
+drop function if exists next_sharded_id //
+CREATE function next_sharded_id ()
 RETURNS bigint
  BEGIN
     DECLARE our_epoch bigint DEFAULT 1325419260000;

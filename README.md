@@ -40,9 +40,9 @@ mysql -uroot -pasdfasdf dbname < create_shard_table.sql
 
 Now if you run:
 ```
-mysql> select simpleproc();
+mysql> select next_sharded_id();
 +--------------------+
-| simpleproc()       |
+| next_sharded_id()       |
 +--------------------+
 | 247562734190477317 |
 +--------------------+

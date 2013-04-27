@@ -4,7 +4,10 @@ django-mysql-shard
 A Model for Django Models to inherit (and utilities) for abstracting horizontal sharding on MySQL. Follow the instructions and grow tables infinitely.
 
 This is essentially a port of Instagram's methods:  
-http://instagram-engineering.tumblr.com/post/10853187575/sharding-ids-at-instagram
+http://instagram-engineering.tumblr.com/post/10853187575/sharding-ids-at-instagram 
+
+And uses lots of inspiration from Disqus: 
+https://github.com/disqus/sharding-example
 
 Why not just do range based?
 ===============================

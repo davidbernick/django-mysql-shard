@@ -53,7 +53,7 @@ mysql> select next_sharded_id();
 import bistring
 a = bitstring.BitArray(bin(247562734190477317))
 #print part where shard_id exists
-print a[46:58].int
+shard_id = a[41:49].int
 ```
 And there's your shard_id. I hope you can imagine what we're going to do with that! It means that any object we get will tell us where it lives without a lookup.  
 

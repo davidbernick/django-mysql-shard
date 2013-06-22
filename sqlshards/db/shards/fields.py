@@ -6,7 +6,7 @@ from django.db.models.signals import post_syncdb, class_prepared
 from django.db.utils import DatabaseError
 from django.utils.translation import ugettext_lazy as _
 
-from sqlshards.db.shards.RandomWriteRouter import db_for_write
+from sqlshards.db.shards import RandomWriteRouter
 
 class AutoSequenceField(BigIntegerField):
 	def __init__(self,  *args, **kwargs):
@@ -29,7 +29,7 @@ class AutoSequenceField(BigIntegerField):
 		"""
 		db_name_list=[]
 		dbhash = settings.DATABASES
-		retun db_for_write()
+		retun RandomWriteRouter.db_for_write()
 #		for key, value in dbhash.iteritems():
 #			if key.startswith("shard_host_"):
 #				db_name_list.append(key)

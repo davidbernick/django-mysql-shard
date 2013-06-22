@@ -11,6 +11,8 @@ from django.db.models.fields.related import ForeignKey, ManyToOneRel, \
 from django.db.utils import DatabaseError
 import bitstring
 
+from sqlshards.db.shards import RandomWriteRouter
+
 class ShardDescriptor(ModelBase):
 	pass
 
@@ -33,11 +35,12 @@ class ShardModel(Model):
 		"""
 		db_name_list=[]
 		dbhash = settings.DATABASES
-		for key, value in dbhash.iteritems():
-			if key.startswith("shard_host_"):
-				db_name_list.append(key)
-		
-		return random.choice(db_name_list)	
+		return RandomWriteRouter.db_for_write()
+#		for key, value in dbhash.iteritems():
+#			if key.startswith("shard_host_"):
+#				db_name_list.append(key)
+#		
+#		return random.choice(db_name_list)	
 	
 
 	def save(self, *args, **kwargs):

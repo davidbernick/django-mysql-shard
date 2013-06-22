@@ -3,7 +3,7 @@ from django.conf import settings
 
 class RandomWriteRouter(object):
 
-	def db_for_write(self, model, **hints):
+	def db_for_write(self, model=None, **hints):
 		"""
 		Writes anywhere
 		"""
